@@ -1,11 +1,11 @@
 {
-  "name": "helper-cli",
+  "name": "@bestjarvan/helper-cli",
   "version": "0.0.1",
   "description": "project cli",
   "keywords": [
     "cli"
   ],
-  "author": "Jiangyahui <j532547613@gmail.com>",
+  "author": "JiangYahui <j532547613@gmail.com>",
   "license": "ISC",
   "bin": {
     "helper-cli": "./bin/helper-cli"
