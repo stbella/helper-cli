@@ -1,0 +1,25 @@
+{
+  "name": "helper-cli",
+  "version": "0.0.1",
+  "description": "project cli",
+  "keywords": [
+    "cli"
+  ],
+  "author": "Jiangyahui <j532547613@gmail.com>",
+  "license": "ISC",
+  "bin": {
+    "helper-cli": "./bin/helper-cli"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@inquirer/confirm": "^2.0.10",
+    "@inquirer/input": "^1.2.9",
+    "chalk": "^4.1.0",
+    "commander": "^6.2.0",
+    "figlet": "^1.6.0",
+    "jenkins": "^1.0.2",
+    "leven": "^3.1.0"
+  }
+}
