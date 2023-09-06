@@ -29,6 +29,15 @@ program
   })
 
 program
+  .command('open <project> [env]')
+  .alias('o')
+  .description('Open web page in default browser. <project> has [helper | picp | h5] options')
+  .action((project, env) => {
+    logo()
+    require('../lib/open')(project, env)
+  })
+
+program
   .arguments('<command>')
   .action((cmd) => {
     program.outputHelp()

@@ -1,6 +1,6 @@
 {
   "name": "@bestjarvan/helper-cli",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "project cli",
   "keywords": [
     "cli"
@@ -20,6 +20,7 @@
     "commander": "^6.2.0",
     "figlet": "^1.6.0",
     "jenkins": "^1.0.2",
-    "leven": "^3.1.0"
+    "leven": "^3.1.0",
+    "open": "^9.1.0"
   }
 }
