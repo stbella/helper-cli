@@ -1,6 +1,6 @@
 {
   "name": "@bestjarvan/helper-cli",
-  "version": "0.0.5",
+  "version": "0.0.8",
   "description": "project cli",
   "keywords": [
     "cli"
@@ -16,14 +16,12 @@
   "dependencies": {
     "@inquirer/confirm": "^2.0.17",
     "@inquirer/input": "^1.2.16",
+    "@inquirer/type": "1.1.6",
     "chalk": "^4.1.0",
     "commander": "^6.2.0",
     "figlet": "^1.6.0",
     "jenkins": "^1.0.2",
     "leven": "^3.1.0",
     "open": "^9.1.0"
-  },
-  "resolutions": {
-    "@inquirer/type": "~1.1.6"
   }
 }
