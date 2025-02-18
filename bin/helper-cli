@@ -1,66 +1,76 @@
 #!/usr/bin/env node
 
-const { program } = require('commander')
-const chalk = require('chalk')
-const leven = require('leven')
-const pkg = require('../package.json')
-const logo = require('../lib/logo')
+const { program } = require("commander");
+const chalk = require("chalk");
+const leven = require("leven");
+const pkg = require("../package.json");
+const logo = require("../lib/logo");
 
 program
-  .version(`${pkg.name}: ${pkg.version}`, '-v, --version')
-  .usage('<command> [options]')
+  .version(`${pkg.name}: ${pkg.version}`, "-v, --version")
+  .usage("<command> [options]");
 
 program
-  .command('jenkins')
-  .alias('jk')
-  .description('Init jenkins Token')
+  .command("jenkins")
+  .alias("jk")
+  .description("Init jenkins Token")
   .action(() => {
-    logo()
-    require('../lib/init-token')()
-  })
+    logo();
+    require("../lib/init-token")();
+  });
 
 program
-  .command('deploy <name> [branch]')
-  .alias('dp')
-  .description('Deploy the project (<name>) to the test environment')
+  .command("iconfont")
+  .alias("icon")
+  .description("Init Iconfont")
+  .action(() => {
+    logo();
+    require("../lib/iconfont")();
+  });
+
+program
+  .command("deploy <name> [branch]")
+  .alias("dp")
+  .description("Deploy the project (<name>) to the test environment")
   .action((name, branch) => {
-    logo()
-    require('../lib/deploy')(name, branch)
-  })
+    logo();
+    require("../lib/deploy")(name, branch);
+  });
 
 program
-  .command('open <project> [env]')
-  .alias('o')
-  .description('Open web page in default browser. <project> has [helper | picp | h5] options')
+  .command("open <project> [env]")
+  .alias("o")
+  .description(
+    "Open web page in default browser. <project> has [helper | picp | h5] options"
+  )
   .action((project, env) => {
-    logo()
-    require('../lib/open')(project, env)
-  })
+    logo();
+    require("../lib/open")(project, env);
+  });
 
-program
-  .arguments('<command>')
-  .action((cmd) => {
-    program.outputHelp()
-    console.log(`  ` + chalk.red(`Unknown command ${chalk.yellow(cmd)}.`))
-    console.log()
-    suggestCommands(cmd)
-  })
+program.arguments("<command>").action(cmd => {
+  program.outputHelp();
+  console.log(`  ` + chalk.red(`Unknown command ${chalk.yellow(cmd)}.`));
+  console.log();
+  suggestCommands(cmd);
+});
 
-program.parse(process.argv)
+program.parse(process.argv);
 
-function suggestCommands (unknownCommand) {
-  const availableCommands = program.commands.map(cmd => cmd._name)
+function suggestCommands(unknownCommand) {
+  const availableCommands = program.commands.map(cmd => cmd._name);
 
-  let suggestion
+  let suggestion;
 
   availableCommands.forEach(cmd => {
-    const isBestMatch = leven(cmd, unknownCommand) < leven(suggestion || '', unknownCommand)
+    const isBestMatch =
+      leven(cmd, unknownCommand) < leven(suggestion || "", unknownCommand);
     if (leven(cmd, unknownCommand) < 3 && isBestMatch) {
-      suggestion = cmd
+      suggestion = cmd;
     }
-  })
+  });
 
   if (suggestion) {
-    console.log(`  ` + chalk.red(`Did you mean ${chalk.yellow(suggestion)}?`))
+    console.log(`  ` + chalk.red(`Did you mean ${chalk.yellow(suggestion)}?`));
   }
 }
